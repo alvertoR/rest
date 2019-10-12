@@ -49,6 +49,11 @@ class Apiempleados{
 
     }
 
+    function newEmpleado($nombre,$apellido,$edad){
+        $empleado = new Empleado();
+        $empleado->insertEmpleado($nombre,$apellido,$edad);
+    }
+
   
     function error($mensaje){
         echo '<code>' . json_encode(array('mensaje' => $mensaje)) . '</code>';

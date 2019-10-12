@@ -36,4 +36,16 @@ if($apoyo == 'eliminar'){
 }
 
 
+$apoyoPost = explode(";",$peticion);
+
+if($apoyoPost[0]=='post'){
+    $nombre = $apoyoPost[1];
+    $apellido = $apoyoPost[2];
+    $edad = $apoyoPost[3];
+    $empleado->newEmpleado($nombre,$apellido,$edad);
+}
+
+
+
+
 ?>

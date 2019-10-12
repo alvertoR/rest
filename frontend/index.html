@@ -27,55 +27,18 @@
         Empleados
     </button>
     <ul id="resultados">
-
     </ul>
 
+   
+    <form onclick="post()">
+        <input type="text" id="nombre" placeholder="Nombre">
+        <input type="text" id="apellido" placeholder="Apellido">
+        <input type="text" id="edad" placeholder="edad">
+        <button>
+            Send
+        </button>
+    </form>
 
-    <script>
-
-        function get(parametro){
-            fetch('http://localhost/api/backend/'+parametro)
-            .then(valor=>valor.json())
-            .then(valor=>{
-                var resultado = document.getElementById('resultados');
-                resultado.innerHTML ='';
-
-                for(let dato of valor){
-                    resultado.innerHTML +=`
-                    
-                    <li>ID: ${dato.id} - Nombre: ${dato.nombre} - Apellido: ${dato.apellido} - Edad: ${dato.edad}</li>
-                    
-                    `;
-                }
-
-            });
-        }
-
-        function filtrar(){
-            var id = document.getElementById('campo').value;
-            fetch('http://localhost/api/backend/'+id)
-            .then(valor=>valor.json())
-            .then(valor =>{
-                var resultado = document.getElementById('resultados');
-                resultado.innerHTML ='';
-                for(let dato of valor){
-                    resultado.innerHTML +=`
-                    
-                    <li>ID: ${dato.id} - Nombre: ${dato.nombre} - Apellido: ${dato.apellido} - Edad: ${dato.edad}</li>
-                    
-                    `;
-                }
-            })
-        }
-
-        function eliminar(){
-            var apoyo = document.getElementById('campoEliminar').value;
-            var id = 'eliminar'+apoyo;
-            fetch('http://localhost/api/backend/'+id)
-
-        }
-
-    </script>
-
+    <script src="js/main.js"></script>
 </body>
 </html>

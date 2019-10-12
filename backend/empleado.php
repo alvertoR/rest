@@ -23,6 +23,12 @@ class Empleado extends Conexion{
         $query->execute([':id' => $id]);
         return $query;
     }
+
+    function insertEmpleado($nombre,$apellido,$edad){
+        $query = $this->connect()->prepare('insert into empleados(nombre,apellido,edad) values(:nombre,:apellido,:edad)');
+        $query->execute([':nombre'=>$nombre,':apellido'=>$apellido,':edad'=>$edad]);
+        return $query;
+    }
 }
 
 ?>
